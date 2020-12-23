@@ -16,7 +16,7 @@ author:
     title: About Authors
     title_url: '#'
     external_url: true
-    description: Faheem and Facundo are solutions architects at BoxBoat specializing in Kubernetes on Azure.
+    description: Faheem and Facundo are both solutions architects at BoxBoat specializing in Kubernetes on Azure.
 
 # Grid navigation
 grid_navigation:
