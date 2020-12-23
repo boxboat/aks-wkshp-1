@@ -8,12 +8,8 @@ title: "Cloud-Native Workshop: Containerize and deploy an app to Azure Kubernete
 description: by BoxBoat
 buttons:
     - content: Slides
-      url: '/slides/newsig-devops-workshop-slides.zip'
+      url: '/slides/boxboat-workshop-slides.zip'
       external_url: false
-    - icon: github
-      content: Sample App Source
-      url: 'https://github.com/onetug/Codecampster'
-      external_url: true
 
 # Author box
 author:

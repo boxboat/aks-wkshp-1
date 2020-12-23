@@ -14,14 +14,14 @@ doks:
             logo:
                 text: 
                 image: true
-            copyright: Copyright &copy; 2020. - BoxBoat <br>All rights reserved.
+            copyright: Copyright &copy; 2021. - BoxBoat <br>All rights reserved.
         social_list:
             - network_name: twitter
               profile_url: 'https://twitter.com/boxboat'
             - network_name: linkedin
               profile_url: 'https://www.linkedin.com/company/boxboat/'
     google_analytics:
-        tracking_code: UA-156571455-1
+        tracking_code: 
     comments:
         disqus_forum_shortname: # Add your disqus forum shortname to activate comments
 
