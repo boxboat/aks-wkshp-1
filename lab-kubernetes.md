@@ -13,7 +13,7 @@ author:
     title: About Author
     title_url: '#'
     external_url: true
-    description: Facudno is a solutions architect at BoxBoat. He was been working with Azure for many years. He started using Azure as a .NET developer when it was new.
+    description: Facundo is a solutions architect at BoxBoat. He was been working with Azure for many years. He started using Azure as a .NET developer when it was new.
 
 # Micro navigation
 micro_nav: true
