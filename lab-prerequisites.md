@@ -15,6 +15,6 @@ micro_nav: true
 page_nav:
     next: 
         content: Lab - Docker
-        url: '/lab-docker'
+        url: 'lab-docker'
 ---
 

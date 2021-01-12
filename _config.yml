@@ -8,7 +8,7 @@ doks:
             image: false
         nav:
             - item_name: Resources
-              item_url: '/resources'
+              item_url: 'resources'
     footer:
         content:
             logo:
@@ -27,12 +27,12 @@ doks:
 
 # SASS settings
 sass:
-    sass_dir: ./doks-theme/_sass
+    sass_dir: doks-theme/_sass
     style: :compressed
 
 # Jekyll settings
-layouts_dir: ./doks-theme/_layouts
-includes_dir: ./doks-theme/_includes
+layouts_dir: doks-theme/_layouts
+includes_dir: doks-theme/_includes
 exclude: [ 'README.md', 'CHANGELOG.md' ]
 permalink: /:title/
 
