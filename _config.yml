@@ -1,6 +1,6 @@
 # Theme settings
 doks:
-    baseurl: 
+    baseurl: /aks-wkshp-1
     color_theme: blue # Available themes: blue (default), green, purple, red and yellow
     header:
         logo:
@@ -35,5 +35,3 @@ layouts_dir: doks-theme/_layouts
 includes_dir: doks-theme/_includes
 exclude: [ 'README.md', 'CHANGELOG.md' ]
 permalink: /:title/
-
-theme: jekyll-theme-cayman
