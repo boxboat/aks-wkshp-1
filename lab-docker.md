@@ -25,6 +25,6 @@ page_nav:
         url: '/'
     next:
         content: Lab - Kubernetes
-        url: 'lab-kubernetes'
+        url: '/lab-kubernetes'
 ---
 

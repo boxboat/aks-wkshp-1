@@ -22,7 +22,7 @@ micro_nav: true
 page_nav:
     prev:
         content: Intro to Docker
-        url: 'lab-docker'
+        url: '/lab-docker'
 ---
 
 ## Pre-Requisites

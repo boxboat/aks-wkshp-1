@@ -8,7 +8,7 @@ title: "Cloud-Native Workshop: Containerize and deploy an app to Azure Kubernete
 description: by BoxBoat
 buttons:
     - content: Slides
-      url: 'slides/boxboat-workshop-slides.zip'
+      url: '/slides/boxboat-workshop-slides.zip'
       external_url: false
 
 # Author box
@@ -23,13 +23,13 @@ grid_navigation:
     - title: 0. Pre-Requisites
       excerpt: "Let's get you set-up"
       cta: Read More
-      url: 'lab-prerequisites'
+      url: '/lab-prerequisites'
     - title: 1. Lab - Intro to Docker
       excerpt: "Let's get started with Docker!"
       cta: Read More
-      url: 'lab-docker'
+      url: '/lab-docker'
     - title: 2. Lab - Intro to Kubernetes
       excerpt: "Let's get started with Kubernetes!"
       cta: Read More
-      url: 'lab-kubernetes'
+      url: '/lab-kubernetes'
 ---
