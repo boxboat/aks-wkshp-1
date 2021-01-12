@@ -38,21 +38,21 @@ az aks get-credentials --resource-group rg-boxboat-wkshp-facundo --name azaks-bo
 ```
 
 ## Run Clippy
-
+```
 kubectl run party-clippy --generator=run-pod/v1 --image=r.j3ss.co/party-clippy
-
+```
 ## View the YAML
-
+```
 kubectl get pod/party-clippy -o yaml
-
+```
 ## Create a service to expose it to the internet
-
+```
 kubectl expose pod/party-clippy --port 80 --target-port 8080 --type LoadBalancer
-
+```
 ## View the YAML
-
+```
 kubectl get service/party-clippy -o yaml
-
+```
 ## Open the URL
 
 Hello Clippy!
