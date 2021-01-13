@@ -18,6 +18,9 @@ page_nav:
         url: '/lab-docker'
 ---
 
-You need `Docker Desktop` and a code editor to complete this lab.
+## Pre-Requisites
+- Azure CLI
+- An Azure Subscription with **Contributor** rights
+- `kubectl`
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
-Download URL - https://www.docker.com/products/docker-desktop
