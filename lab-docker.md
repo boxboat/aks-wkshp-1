@@ -30,11 +30,11 @@ page_nav:
 
 ## Install Docker Desktop
 
-Link: https://www.docker.com/products/docker-desktop
+Link: [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 Once you have the Docker Desktop installed on your computer, launch a terminal and type the following command.
 
-```bash
+```shell
 docker version
 
 # response
@@ -72,10 +72,10 @@ Server: Docker Engine - Community
 `docker version` command shows you information regarding the client (Desktop CLI) and serer (Desktop Engine).
 
 ## Pull and launch a container
-You can pull pre-built container images from external registries such as https://hub.docker.com. Let's pull and launch an `alpine` container.
+You can pull pre-built container images from external registries such as [Docker Hub](https://hub.docker.com). Let's pull and launch an `alpine` container.
 
 **Step 1: Pull the container**
-```bash
+```shell
 docker pull alpine
 
 # response
@@ -88,7 +88,7 @@ docker.io/library/alpine:latest
 ```
 
 **Step 2: Run the container and connect shell into it**
-```bash
+```shell
 docker run --name alpine -ti alpine
 # _
 ```
@@ -97,7 +97,7 @@ Docker CLI will launch the container and you can run commands insite the Linux c
 **Step 3: Stop and delete the container**
 You can `exit` out of the shell. It will also stop the container since there was no long running process inside it. In case of other applications, for example a web server, it will continue running as long as web server process is running. Once your containe is stopped, you can remove the container instance from the system.
 
-```bash
+```shell
 docker rm alpine
 ```
 
@@ -105,7 +105,7 @@ docker rm alpine
 
 **Step 1: Let's launch a webserver container.**
 
-```bash
+```shell
 docker run --name hello-world -d -p 80:80 boxboat/hello-world
 ```
 
@@ -117,39 +117,39 @@ Notice that we didn't explicitly pull the `boxboat/hello-world` image from Docke
 
  **Step 2: Check the running containers**
  
- ```bash
+ ```shell
  docker ps
 
  #response
  CONTAINER ID   IMAGE                 COMMAND                  CREATED          STATUS          PORTS                NAMES
 b3c75af0d067   boxboat/hello-world   "/opt/hello-world/he…"   22 seconds ago   Up 18 seconds   0.0.0.0:80->80/tcp   hello-world
 ```
-`docker ps` shows all running containers. We only have one at this  point. You can also see the ports mapping being done. You should be able to open a browser and view the website http://localhost:80
+`docker ps` shows all running containers. We only have one at this  point. You can also see the ports mapping being done. You should be able to open a browser and view the website [http://localhost](http://localhost:80)
 
 **Step 3: Check container logs**
-```bash
+```shell
 docker logs hello-world
 ```
 
 **Step 4: Exec into the conatiner**
-```bash
+```shell
 docker exec -ti hello-world sh
 ```
 Look around inside the container and when you are done `exit` out of it.
 
 **Step 5: Stop and cleanup**
-```bash
+```shell
 docker stop hello-world
 docker rm hello-world
 ```
 
-You can learn more about Docker CLI command here (https://docs.docker.com/engine/reference/commandline/docker/)
+You can learn more about Docker CLI command [reference](https://docs.docker.com/engine/reference/commandline/docker/)
 
 ## Build conatiners images
 
-You can use a `Dockerfile` to build new container images. Dockerfile provides a simple syntax for building Linux or Windows containers. You can learn more about the Dockerfile here (https://docs.docker.com/engine/reference/builder/) Let's build a container for funfact application.
+You can use a `Dockerfile` to build new container images. Dockerfile provides a simple syntax for building Linux or Windows containers. You can learn more about the Dockerfile [reference](https://docs.docker.com/engine/reference/builder/) Let's build a container for funfact application.
 
-```bash
+```shell
 git pull git@github.com:faheem556/funfact.git
 cd funfact
 
@@ -164,7 +164,7 @@ docker build -t funfact:java-1-0 -f java/Dockerfile ./funfact/java
 ```
 
 Example Dockerfile
-```Dockerfile
+```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
 WORKDIR /app
 
@@ -188,7 +188,7 @@ Read through the code and docker files to understand the environement. It's real
 
 Let's run the application now.
 
-```bash
+```shell
 docker run --name funfactd -d --rm -p 8080:80 funfact:dotnet-1-0 
 docker run --name funfactn -d --rm -p 8081:80 funfact:node-1-0 
 docker run --name funfactj -d --rm -p 8082:80 funfact:java-1-0 
@@ -200,7 +200,7 @@ You should have three running containers at this point. If for some reason the c
 Once the containers are up, open you browsers and try out the applications.
 
 **Cleanup**
-```bash
+```shell
 docker stop funfactd
 docker rm funfactd
 
