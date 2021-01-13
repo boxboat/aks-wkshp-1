@@ -8,7 +8,7 @@ title: "Cloud-Native Workshop: Containerize and deploy an app to Azure Kubernete
 description: by BoxBoat
 buttons:
     - content: Slides
-      url: '/slides/boxboat-workshop-slides.zip'
+      url: '/slides/boxboat-workshop-slides.pdf'
       external_url: false
 
 # Author box
