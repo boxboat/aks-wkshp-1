@@ -18,3 +18,6 @@ page_nav:
         url: '/lab-docker'
 ---
 
+You need `Docker Desktop` and a code editor to complete this lab.
+
+Download URL - https://www.docker.com/products/docker-desktop
