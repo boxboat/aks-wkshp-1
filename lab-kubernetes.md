@@ -108,9 +108,6 @@ Now, in most scenarios, you won't be deploying an enterprise application from a 
 Instead, you will be likely be using a private container registry like Azure Container Registry (ACR). 
 
 Let's move the clippy container image into your _own_ container registry you created before.
-There's a few options.
-
-### Option A (using Azure CLI)
 
 Microsoft has clear documentation on how to do this. [See here](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-import-images#import-from-a-public-registry). They also provide options on how to import private container images from other registries into ACR.
 
@@ -147,15 +144,178 @@ $ curl [ip from above]
     \___/
 ```
 
-### Option B (DYI)
+## Exploring features on AKS
+
+Go to the Azure portal and try to do the following: 
+
+- Find AKS Cluster
+- Find the Azure Container Registry. Then enable geo-replication to another region.
+- Find the node pool for that cluster
+- Find the VMs part of that node pool
+
+Great. Then, try to scale from 3 nodes to 2 nodes using the Azure portal. 
+
+You can observe from the Azure Cloud Shell by:
 
 ``` bash
-
+# authenticate to aks
+az aks get-credentials -n azaks-boxboat-wkshp-[myname]-001 -g rg-boxboat-wkshp-[myname]
 ```
 
-## Enabling features on AKS
+Then, issuing `kubectl` commands to watch the node being removed.
+
+``` bash
+kubectl get nodes -w
+```
+
+Try scaling one more time. This time use the Azure CLI to remove another node and scale to a _single_ instance.
+
+```
+# this takes some time
+az aks scale --name azaks-boxboat-wkshp-[myname]-001 --node-count 1 --resource-group rg-boxboat-wkshp-[myname]
+
+# see the status once again
+kubectl get nodes
+```
+
+Is clippy still running? We removed two nodes so far. 2/3 chances that it's not.
+
+``` shell
+kubectl get pods
+```
+
+## Making Clippy reliable
+
+If clippy is not running, let's make it reliable by making a Kubernetes deployment.
+
+You can keep using the Azure Cloud Shell, or authenticate from your own workstation (you'll have to `az login` first).
+
+Assumming you have VS Code (Cloud Shell already has it installed), then create a new `deployment.yaml` file.
+```
+code deployment.yaml
+```
+
+Then paste in this snippet and fill in the placeholders.
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clippy-deployment
+spec:
+  selector:
+    matchLabels:
+      app: clippy
+  template:
+    metadata:
+      labels:
+        app: clippy
+    spec:
+      containers:
+      - name: clippy
+        image: [myname]BoxBoatWorkshopRegistry.azurecr.io/party-clippy
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+```
+
+Deploy it.
+
+```
+kubectl apply -f deployment.yaml
+```
+
+Watch the deployment.
+
+``` 
+kubectl get deployment -w
+```
+
+Is Clippy running?
+
+Probably not. We haven't configured a service to point to the proper label. The previous load balancer we created was using the shortcut: `kubectl expose` which targeted a single pod. 
+
+Let's create a proper service. Create another file called `service.yaml`
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: clippy-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: clippy
+  ports:
+  - port: 80
+    targetPort: 8080
+```
+
+And, deploy it. 
+
+``` bash
+kubectl apply -f service.yaml
+```
+
+Great, wait for the public IP to be assigned (`External IP`).
+
+``` bash
+kubectl get svc -w
+```
+
+Once it finishes, is Clippy running now?
+
+``` bash
+$ curl [External IP from Above]
+
+ _________________________________
+/ It looks like you're building a \
+\ microservice.                   /
+ ---------------------------------
+ \
+  \
+     __
+    /  \
+    |  |
+    @  @
+    |  |
+    || | /
+    || ||
+    |\_/|
+    \___/
+```
+
+Great! Now that clippy is running. 
+
+Try stopping the AKS cluster (it will deallocate all the worker nodes) and re-creating it. 
+
+``` bash
+az aks stop --name  azaks-boxboat-wkshp-[myname]-001 --resource-group rg-boxboat-wkshp-[myname]
+
+az aks stop --name  azaks-boxboat-wkshp-[myname]-001 --resource-group rg-boxboat-wkshp-[myname]
+```
+
+When the cluster stops, Clippy's pod will die. 
+
+When the cluster starts-up, Clippy's pod will be re-created. 
+
+After it finishes, check-up on Clippy again. 
+
+
+That's it!
+
+Congrats and thanks for following-up on this lab!
+
 
 ## Clean-Up
+
+Delete all the resources created in the resource group with
+
+```
+az group delete -g rg-boxboat-wkshp-[myname]
+```
 
 
 
