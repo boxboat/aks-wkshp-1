@@ -196,7 +196,7 @@ code deployment.yaml
 ```
 
 Then paste in this snippet and fill in the placeholders.
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
