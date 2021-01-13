@@ -101,7 +101,7 @@ You can `exit` out of the shell. It will also stop the container since there was
 docker rm alpine
 ```
 
-## Pull and launch another container
+## Lunch a webserver
 
 **Step 1: Lunch a webserver container.**
 
