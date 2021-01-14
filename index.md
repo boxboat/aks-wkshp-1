@@ -10,6 +10,9 @@ buttons:
     - content: Slides
       url: '/slides/boxboat-workshop-slides.pdf'
       external_url: false
+    - content: GitHub
+      url: 'https://github.com/boxboat/aks-wkshp-1'
+      external_url: true
 
 # Author box
 author:
