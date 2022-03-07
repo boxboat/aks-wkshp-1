@@ -101,9 +101,9 @@ You can `exit` out of the shell. It will also stop the container since there was
 docker rm alpine
 ```
 
-## Lunch a webserver
+## Launch a webserver
 
-**Step 1: Lunch a webserver container.**
+**Step 1: Launch a webserver container.**
 
 ```shell
 docker run --name hello-world -d -p 80:80 boxboat/hello-world
