@@ -154,13 +154,13 @@ git clone git@github.com:faheem556/funfact.git
 cd funfact
 
 # build dotnet app
-docker build -t funfact:dotnet-1-0 -f dotnet/Dockerfile ./funfact/dotnet
+docker build -t funfact:dotnet-1-0 -f dotnet/Dockerfile ./dotnet
 
 # build node image
-docker build -t funfact:node-1-0 -f nodejs/Dockerfile ./funfact/nodejs
+docker build -t funfact:node-1-0 -f nodejs/Dockerfile ./nodejs
 
 # build java image
-docker build -t funfact:java-1-0 -f java/Dockerfile ./funfact/java
+docker build -t funfact:java-1-0 -f java/Dockerfile ./java
 ```
 
 Example Dockerfile
