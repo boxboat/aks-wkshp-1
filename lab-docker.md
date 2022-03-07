@@ -150,7 +150,7 @@ You can learn more about Docker CLI command [reference](https://docs.docker.com/
 You can use a `Dockerfile` to build new container images. Dockerfile provides a simple syntax for building Linux or Windows containers. You can learn more about the Dockerfile [reference](https://docs.docker.com/engine/reference/builder/) Let's build a container for funfact application.
 
 ```shell
-git pull git@github.com:faheem556/funfact.git
+git clone git@github.com:faheem556/funfact.git
 cd funfact
 
 # build dotnet app
